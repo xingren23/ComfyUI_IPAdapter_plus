@@ -15,7 +15,8 @@ import torchvision.transforms as TT
 
 from .resampler import Resampler
 
-MODELS_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "models")
+# MODELS_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "models")
+MODELS_DIR = os.paht.join(folder_paths.models_dir, 'ipadapter')
 
 # attention_channels
 SD_V12_CHANNELS = [320] * 4 + [640] * 4 + [1280] * 4 + [1280] * 6 + [640] * 6 + [320] * 6 + [1280] * 2
