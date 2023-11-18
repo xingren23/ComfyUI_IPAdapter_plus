@@ -25,8 +25,6 @@ folder_paths.folder_names_and_paths['ipadapter'] = ([MODELS_DIR], ['.bin', '.saf
 SD_V12_CHANNELS = [320] * 4 + [640] * 4 + [1280] * 4 + [1280] * 6 + [640] * 6 + [320] * 6 + [1280] * 2
 SD_XL_CHANNELS = [640] * 8 + [1280] * 40 + [1280] * 60 + [640] * 12 + [1280] * 20
 
-def get_filename_list(path):
-    return [f for f in os.listdir(path) if f.endswith('.bin') or f.endswith('.safetensors')]
 
 class MLPProjModel(torch.nn.Module):
     """SD model with image prompt"""
@@ -300,7 +298,7 @@ class CrossAttentionPatch:
 class IPAdapterModelLoader:
     @classmethod
     def INPUT_TYPES(s):
-        return {"required": { "ipadapter_file": (get_filename_list(MODELS_DIR), )}}
+        return {"required": { "ipadapter_file": (folder_paths.get_filename_list('ipadapter'),)}}
 
     RETURN_TYPES = ("IPADAPTER",)
     FUNCTION = "load_ipadapter_model"
